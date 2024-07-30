@@ -25,10 +25,10 @@ class ListProducts extends ListRecords
         return [
             'all' => Tab::make(),
             'active' => Tab::make()
-                ->modifyQueryUsing(fn(Builder $query) => $query->where('status', 'active'))
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'active'))
                 ->badge(Product::query()->where('status', 'active')->count()),
             'inactive' => Tab::make()
-                ->modifyQueryUsing(fn(Builder $query) => $query->where('status', 'inactive'))
+                ->modifyQueryUsing(fn (Builder $query) => $query->where('status', 'inactive'))
                 ->badge(Product::query()->where('status', 'inactive')->count()),
         ];
     }

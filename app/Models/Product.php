@@ -12,7 +12,7 @@ class Product extends Model
 
     protected $fillable = [
         'name',
-        'status'
+        'status',
     ];
 
     protected function casts(): array

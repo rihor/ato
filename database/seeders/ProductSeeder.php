@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Enums\ProductStatus;
 use App\Models\Product;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class ProductSeeder extends Seeder
@@ -17,27 +16,27 @@ class ProductSeeder extends Seeder
         Product::factory()
             ->count(3)
             ->create([
-                'status' => ProductStatus::DRAFT
+                'status' => ProductStatus::DRAFT,
             ]);
         Product::factory()
             ->count(2)
             ->create([
-                'status' => ProductStatus::INACTIVE
+                'status' => ProductStatus::INACTIVE,
             ]);
         Product::factory()
             ->count(10)
             ->create([
-                'status' => ProductStatus::ACTIVE
+                'status' => ProductStatus::ACTIVE,
             ]);
         Product::factory()
             ->count(7)
             ->create([
-                'status' => ProductStatus::WAITING_APPROVAL
+                'status' => ProductStatus::WAITING_APPROVAL,
             ]);
         Product::factory()
             ->count(12)
             ->create([
-                'status' => ProductStatus::DISCONTINUED
+                'status' => ProductStatus::DISCONTINUED,
             ]);
     }
 }

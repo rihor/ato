@@ -4,7 +4,6 @@ namespace App\Filament\Resources;
 
 use App\Enums\ProductStatus;
 use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
 use App\Models\Product;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -12,8 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ProductResource extends Resource
 {
@@ -29,7 +26,7 @@ class ProductResource extends Resource
                 Forms\Components\Select::make('status')
                     ->options(ProductStatus::class)
                     ->default(ProductStatus::DRAFT->value)
-                    ->native(false)
+                    ->native(false),
             ]);
     }
 
@@ -38,13 +35,13 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TagsColumn::make('status')
+                Tables\Columns\TagsColumn::make('status'),
             ])
             ->filters([
                 SelectFilter::make('status')
                     ->options(ProductStatus::class)
                     ->multiple()
-                    ->native(false)
+                    ->native(false),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

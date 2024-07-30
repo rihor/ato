@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Enums;
+
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasLabel;
 
-enum ProductStatus: string implements HasLabel, HasColor
+enum ProductStatus: string implements HasColor, HasLabel
 {
     case DRAFT = 'draft';
     case ACTIVE = 'active';
@@ -12,7 +13,8 @@ enum ProductStatus: string implements HasLabel, HasColor
     case DISCONTINUED = 'discontinued';
     case WAITING_APPROVAL = 'waiting-approval';
 
-    public static function values(): array {
+    public static function values(): array
+    {
         return array_column(self::cases(), 'value');
     }
 
@@ -27,7 +29,7 @@ enum ProductStatus: string implements HasLabel, HasColor
         };
     }
 
-    public function getColor(): string | array | null
+    public function getColor(): string|array|null
     {
         return match ($this) {
             self::DRAFT => 'gray',
