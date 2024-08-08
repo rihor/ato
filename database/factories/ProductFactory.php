@@ -18,6 +18,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => fake()->unique()->domainWord(),
+            'description' => implode('. ', fake()->sentences()),
             'status' => 'draft',
         ];
     }

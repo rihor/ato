@@ -5,6 +5,8 @@ namespace App\Models;
 use App\Enums\ProductStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Product extends Model
 {
@@ -12,6 +14,7 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'description',
         'status',
     ];
 
@@ -20,5 +23,15 @@ class Product extends Model
         return [
             'status' => ProductStatus::class,
         ];
+    }
+
+    public function changes() : HasMany
+    {
+        return $this->hasMany(ProductHistory::class);
+    }
+
+    public function latestChange() : HasOne
+    {
+        return $this->hasOne(ProductHistory::class)->latestOfMany();
     }
 }

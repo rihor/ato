@@ -8,8 +8,10 @@
         "php": "^8.2",
         "filament/filament": "^3.2",
         "filament/widgets": "^3.2",
+        "jfcherng/php-diff": "^6.16",
         "laravel/framework": "^11.9",
         "laravel/reverb": "^1.0",
+        "laravel/telescope": "^5.1",
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "livewire/volt": "^1.0"

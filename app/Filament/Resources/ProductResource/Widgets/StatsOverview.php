@@ -22,7 +22,8 @@ class StatsOverview extends BaseWidget
             Stat::make('Active products', Product::where('status', ProductStatus::ACTIVE)->count())
                 ->description("$countActivatedLastWeek increase")
                 ->color('success'),
-            Stat::make('Products waiting for approval', Product::where('status', ProductStatus::WAITING_APPROVAL)->count()),
+            Stat::make('Products waiting for approval', Product::where('status', ProductStatus::WAITING_APPROVAL)->count())
+                ->url('admin/products?tableFilters[status][values][0]=waiting-approval'),
         ];
     }
 }
